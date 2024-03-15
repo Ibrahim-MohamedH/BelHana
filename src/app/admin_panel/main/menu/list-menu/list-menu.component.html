@@ -1,0 +1,42 @@
+<admin-navbar></admin-navbar>
+<div class="container py-5">
+  <div class="card bg-dark text-light">
+    <div class="card-body table-responsive">
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>ingredients</th>
+            <th>price</th>
+            <th>type</th>
+            <th colspan="2">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dish of menu">
+            <td>{{ dish.id }}</td>
+            <td><img width="90" src="{{ dish.image }}" alt="" /></td>
+            <td>{{ dish.name }}</td>
+            <td>{{ dish.ingredients }}</td>
+            <td>{{ dish.price | currency : "EGP" }}</td>
+            <td>{{ dish.type }}</td>
+            <td>
+              <a
+                routerLink="/admin/menu/edit/{{ dish.id }}"
+                class="btn btn-warning"
+                >edit</a
+              >
+            </td>
+            <td>
+              <button (click)="remove(dish.id)" class="btn btn-danger">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

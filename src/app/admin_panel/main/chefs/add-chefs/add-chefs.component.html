@@ -1,0 +1,91 @@
+<admin-navbar></admin-navbar>
+
+<div class="container py-5 col-lg-6 col-md-8 col-sm-10 col-12">
+  <div class="card bg-dark text-light">
+    <div class="card-body">
+      <h2 class="text-center">Add New Chef</h2>
+      <div *ngIf="message" class="alert alert-success">
+        {{ message }}
+      </div>
+      <form #formGroup="ngForm">
+        <div class="form-group mb-2">
+          <label for="name" class="form-label">Chef Name</label>
+          <input
+            type="text"
+            #chefName="ngModel"
+            [(ngModel)]="chef.name"
+            class="form-control"
+            name="name"
+            id="name"
+            placeholder="Enter Chef Name"
+            required
+          />
+        </div>
+        <div
+          *ngIf="formGroup.form.controls['name']?.valid"
+          class="form-group mb-2"
+        >
+          <label for="role" class="form-label">Chef Role</label>
+          <input
+            #role="ngModel"
+            [(ngModel)]="chef.role"
+            type="text"
+            class="form-control"
+            name="role"
+            id="role"
+            placeholder="Enter Chef role"
+            required
+          />
+        </div>
+        <div
+          *ngIf="formGroup.form.controls['role']?.valid"
+          class="form-group mb-2"
+        >
+          <label for="image" class="form-label">Image URL</label>
+          <input
+            #image="ngModel"
+            [(ngModel)]="chef.image"
+            type="text"
+            class="form-control"
+            name="image"
+            id="image"
+            placeholder="Enter Chef image url"
+            required
+          />
+        </div>
+        <div
+          *ngIf="formGroup.form.controls['image']?.valid"
+          class="form-group mb-2"
+        >
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            #description="ngModel"
+            [(ngModel)]="chef.description"
+            name="description"
+            id="description"
+            cols="30"
+            rows="5"
+            class="form-control"
+            placeholder="description"
+            required
+          ></textarea>
+        </div>
+        <div
+          *ngIf="formGroup?.valid; then validForm; else invalidForm"
+          class="form-group"
+        ></div>
+      </form>
+    </div>
+  </div>
+</div>
+<ng-template #validForm>
+  <div class="text-center">
+    <button (click)="submit()" class="btn btn-primary">Add Chef</button>
+  </div>
+</ng-template>
+
+<ng-template #invalidForm>
+  <div class="text-center">
+    <button disabled class="btn btn-danger">fill out all fields first</button>
+  </div>
+</ng-template>

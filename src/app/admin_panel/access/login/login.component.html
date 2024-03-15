@@ -1,0 +1,37 @@
+<div class="container py-5">
+  <div class="card bg-dark text-light">
+    <div class="card-body">
+      <h3>login</h3>
+      <div *ngIf="message" class="alert alert-danger">
+        {{ message }}
+      </div>
+      <form>
+        <div class="form-group mb-2">
+          <label for="" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            #email="ngModel"
+            [(ngModel)]="admin.email"
+            required
+          />
+        </div>
+        <div class="form-group mb-2">
+          <label for="" class="form-label">password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            #password="ngModel"
+            [(ngModel)]="admin.password"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <button (click)="submit()" class="btn btn-primary">sumbit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

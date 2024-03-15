@@ -1,0 +1,109 @@
+<admin-navbar></admin-navbar>
+
+<div class="container py-5 col-lg-6 col-md-8 col-sm-10 col-12">
+  <div class="card bg-dark text-light">
+    <div class="card-body">
+      <h2 class="text-center">Update Dish</h2>
+      <div *ngIf="message" class="alert alert-success">
+        {{ message }}
+      </div>
+      <form #formGroup="ngForm">
+        <div class="form-group mb-2">
+          <label for="name" class="form-label">Dish Name</label>
+          <input
+            type="text"
+            #dishName="ngModel"
+            [(ngModel)]="menu.name"
+            class="form-control"
+            name="name"
+            id="name"
+            placeholder="Enter dish Name"
+            required
+          />
+        </div>
+        <div
+          *ngIf="formGroup.form.controls['name']?.valid"
+          class="form-group mb-2"
+        >
+          <label for="ingredients" class="form-label">ingredients</label>
+          <input
+            #ingredients="ngModel"
+            [(ngModel)]="menu.ingredients"
+            type="text"
+            class="form-control"
+            name="ingredients"
+            id="ingredients"
+            placeholder="Enter ingredients"
+            required
+          />
+        </div>
+        <div
+          *ngIf="formGroup.form.controls['ingredients']?.valid"
+          class="form-group mb-2"
+        >
+          <label for="image" class="form-label">Image URL</label>
+          <input
+            #image="ngModel"
+            [(ngModel)]="menu.image"
+            type="text"
+            class="form-control"
+            name="image"
+            id="image"
+            placeholder="Enter Chef image url"
+            required
+          />
+        </div>
+        <div
+          *ngIf="formGroup.form.controls['image']?.valid"
+          class="form-group mb-2"
+        >
+          <label for="price" class="form-label">price</label>
+          <input
+            #price="ngModel"
+            [(ngModel)]="menu.price"
+            type="text"
+            class="form-control"
+            name="price"
+            id="price"
+            placeholder="Enter price"
+            required
+          />
+        </div>
+        <div class="form-group mb-2">
+          <label for="type" class="form-label">Type</label>
+          <select
+            name="type"
+            id="type"
+            class="form-select"
+            #type="ngModel"
+            [(ngModel)]="menu.type"
+          >
+            <option value="starter">Starter</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+          </select>
+          <span *ngIf="type?.invalid && type?.touched" class="text-danger fs-5"
+            >*this field is required</span
+          >
+        </div>
+        <div
+          *ngIf="formGroup?.valid; then validForm; else invalidForm"
+          class="form-group"
+        ></div>
+      </form>
+    </div>
+  </div>
+</div>
+<ng-template #validForm>
+  <div class="text-center">
+    <button (click)="update()" class="btn btn-warning me-2">Update menu</button>
+    <a routerLink="/admin/menu/list" class="btn btn-secondary">Cancel</a>
+  </div>
+</ng-template>
+
+<ng-template #invalidForm>
+  <div class="text-center">
+    <button disabled class="btn btn-danger">fill out all fields first</button>
+  </div>
+</ng-template>

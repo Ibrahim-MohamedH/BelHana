@@ -1,0 +1,67 @@
+{
+  "chefs": [
+    {
+      "id": 1,
+      "name": "Walter White",
+      "role": "Master Chef",
+      "image": "assets/img/chefs/chefs-1.jpg",
+      "description": "Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate."
+    },
+    {
+      "name": "Sarah Jhonson",
+      "role": "Patissier",
+      "image": "assets/img/chefs/chefs-2.jpg",
+      "description": "Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.",
+      "id": 2
+    },
+    {
+      "name": "William Anderson",
+      "role": "Cook",
+      "image": "assets/img/chefs/chefs-3.jpg",
+      "description": "Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.",
+      "id": 3
+    }
+  ],
+  "menu": [
+    {
+      "id": 1,
+      "name": "Magnam Tiste",
+      "ingredients": "Lorem, deren, trataro, filede, nerada",
+      "price": "5.95",
+      "type": "starter",
+      "image": "assets/img/menu/menu-item-1.png"
+    },
+    {
+      "name": "طعمية بسمسم",
+      "ingredients": "فول, خضراوات, سمسم, زيت عربيات",
+      "price": "12",
+      "image": "https://media.gemini.media/img/large/2015/7/28/2015_7_28_10_17_41_569.jpg",
+      "type": "breakfast",
+      "id": 2
+    },
+    {
+      "name": "Eos Luibusdam",
+      "ingredients": "Lorem, deren, trataro, filede, nerada",
+      "price": "12.95",
+      "image": "assets/img/menu/menu-item-5.png",
+      "type": "lunch",
+      "id": 3
+    },
+    {
+      "name": "Laboriosam Direva",
+      "ingredients": "Lorem, deren, trataro, filede, nerada",
+      "price": "9.95",
+      "image": "assets/img/menu/menu-item-6.png",
+      "type": "dinner",
+      "id": 4
+    }
+  ],
+  "admin": [
+    {
+      "name": "Ibrahim",
+      "email": "admin@admin.com",
+      "password": "123123",
+      "id": 1
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+<admin-navbar></admin-navbar>
+<div class="container col-lg-5 col-md-7 col-sm-9 col-12 py-5">
+  <div class="card bg-dark text-light">
+    <div class="card-body">
+      <h3 class="text-center">Add New Dish</h3>
+      <form [formGroup]="menu">
+        <div class="form-group mb-2">
+          <label for="name" class="form-label">Dish Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            id="name"
+            formControlName="name"
+          />
+          <span *ngIf="name?.invalid && name?.touched" class="text-danger fs-5"
+            >*this field is required</span
+          >
+        </div>
+        <div class="form-group mb-2">
+          <label for="ingredients" class="form-label">Ingredients</label>
+          <input
+            type="text"
+            class="form-control"
+            name="ingredients"
+            id="ingredients"
+            formControlName="ingredients"
+          />
+          <span
+            *ngIf="ingredients?.invalid && ingredients?.touched"
+            class="text-danger fs-5"
+            >*this field is required</span
+          >
+        </div>
+        <div class="form-group mb-2">
+          <label for="price" class="form-label">Price</label>
+          <input
+            type="text"
+            class="form-control"
+            name="price"
+            id="price"
+            formControlName="price"
+          /><span
+            *ngIf="price?.invalid && price?.touched"
+            class="text-danger fs-5"
+            >*this field is required</span
+          >
+        </div>
+        <div class="form-group mb-2">
+          <label for="image" class="form-label">Image</label>
+          <input
+            type="text"
+            class="form-control"
+            name="image"
+            id="image"
+            formControlName="image"
+          /><span
+            *ngIf="image?.invalid && image?.touched"
+            class="text-danger fs-5"
+            >*this field is required</span
+          >
+        </div>
+        <div class="form-group mb-2">
+          <label for="type" class="form-label">Type</label>
+          <select
+            name="type"
+            id="type"
+            class="form-select"
+            formControlName="type"
+          >
+            <option value="starter">Starter</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+          </select>
+          <span *ngIf="type?.invalid && type?.touched" class="text-danger fs-5"
+            >*this field is required</span
+          >
+        </div>
+        <div
+          *ngIf="menu.valid; then valid; else invalid"
+          class="form-group"
+        ></div>
+      </form>
+    </div>
+  </div>
+</div>
+<ng-template #valid>
+  <div class="text-center">
+    <button (click)="submit()" class="btn btn-primary">Add Dish</button>
+  </div>
+</ng-template>
+<ng-template #invalid>
+  <div class="text-center">
+    <button disabled class="btn btn-danger">Fill all Fields</button>
+  </div>
+</ng-template>
